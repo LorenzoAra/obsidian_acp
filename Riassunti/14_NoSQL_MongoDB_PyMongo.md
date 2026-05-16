@@ -164,7 +164,7 @@ db.dropDatabase();                  // elimina l'intero database
 
 ## PyMongo
 
-**PyMongo** e il **driver ufficiale** per l'utilizzo di MongoDB in Python.
+**PyMongo** è il **driver ufficiale** per l'utilizzo di MongoDB in Python.
 
 ```bash
 pip install pymongo
