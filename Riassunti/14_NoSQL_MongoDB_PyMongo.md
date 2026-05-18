@@ -114,18 +114,18 @@ Piu **indulgenti** nella struttura. Usano **collections** di documenti invece di
 
 ### Componenti Chiave
 
-| Componente | Descrizione | Equivalente Relazionale |
-|---|---|---|
-| `_id` | Campo obbligatorio; valore unico (chiave primaria) | Primary Key |
-| **Collection** | Raggruppamento di documents | Tabella |
-| **Document** | Un record in una collection | Riga/Record |
-| **Field** | Coppia name-value in un document | Colonna |
-| **Database** | Contenitore per le collection | Database |
-| **Cursor** | Puntatore al risultato di una query su cui iterare | Result set |
+| Componente     | Descrizione                                        | Equivalente Relazionale |
+| -------------- | -------------------------------------------------- | ----------------------- |
+| `_id`          | Campo obbligatorio; valore unico (chiave primaria) | Primary Key             |
+| **Collection** | Raggruppamento di documents                        | Tabella                 |
+| **Document**   | Un record in una collection                        | Riga/Record             |
+| **Field**      | Coppia name-value in un document                   | Colonna                 |
+| **Database**   | Contenitore per le collection                      | Database                |
+| **Cursor**     | Puntatore al risultato di una query su cui iterare | Result set              |
 
 ### Confronto Relazionale vs MongoDB
 
-```
+```json
 // Relazionale: 4 tabelle separate (users, professions, apps, cars)
 // MongoDB: un unico document innestato
 {
