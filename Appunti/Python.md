@@ -1,18 +1,30 @@
+## Introduzione
 Python è un linguaggio di programmazione interpretato, ovvero in cui il codice non viene prima tradotto interamente in linguaggio macchina, ma le singole istruzioni vengono eseguite, dall'interprete Python (CPython), riga per riga. Ciò che fa CPython è tradurre il codice in un "byte code" (file .pyc), ovvero uno codice generato appositamente per una macchina virtuale, la PVM (Python Virtual Machine).
 Python, in quanto orientato agli oggetti, manipola i cosiddetti data objects, ovvero oggetti che hanno un tipo, che può essere scalare e non-scalare, dove per non-scalare si intendono oggetti con una struttura interna accessibile. Le stringhe sono tipi di oggetti particolari, che sono per definizione non-scalari (dato che sono letteralmente array di caratteri), ma vengono trattati come scalari (non si può modificare con una normale assegnazione un singolo carattere di una stringa).
 Una funzione in Python è composta da nome, parametri, docstring opzionale, corpo e valore di ritorno (se non specificato, una funzione in Python ritorna sempre None).
 Per scope di una variabile si intende il mapping tra il nome della variabile e l'oggetto a cui punta, che può cambiare in base alla funzione in esecuzione. 
 
+## Moduli e Package
 In Python le definizioni di funzioni e variabili non sono salvate all'uscita dell'interprete, quindi arrivano in nostro soccorso i moduli, che permettono di eseguire istruzioni come script eseguibili (infatti sono proprio dei normali file .py), importandoli tramite keyword import (nel momento in cui l'interprete esegue l'import, vengono eseguite tutte le dichiarazione e definizioni del modulo importato). Per definire delle funzionalità di un modulo che non vanno eseguite all'importazione, queste si possono inserire nella variabile globale \_\_main\_\_, così che vengano eseguite solo quando è il modulo stesso ad essere eseguito dall'utente. CPython cerca i moduli importati in determinati luoghi specifici, nel seguente ordine: 
 directory corrente -> elenco delle directory nel PYTHONPATH -> percorso predefinito (in base all'installazione).
 Esiste anche una libreria standard di moduli Python, in cui sono contenuti moduli che svolgono operazioni importanti ma non facenti parte del nucleo di Python, come ad esempio il modulo sys, che grazie alla sua variabile argv permette di fornire parametri ad un programma python direttamente dall'esecuzione, specificandoli dopo il nome del programma (python programma.py arg1 arg2 ...).
 I moduli in Python sono organizzati in Packages, memorizzati in directory, dove ogni directory contiene un file \_\_init.py\_\_, che istruisce l'interprete di trattare la directory come fosse un package e può essere vuoto oppure contenere delle istruzioni di inizializzazione per il package.
 
-Le strutture dati principali di Python sono Tuple, Liste e Dizionari, indicate rispettivamente con (), \[\] e {}.
+## Tuple, Liste e Dizionari
+Le strutture dati principali di Python sono Tuple, Liste e Dizionari, indicate rispettivamente con (), 
+\[\] e {}.
 Le Tuple sono una sequenza **ordinata** di elementi eterogenei che non possono cambiare, quindi una tupla è immutabile. 
 Una Lista è una sequenza **ordinata** di informazioni, accessibile tramite indice. Anch'essa può contenere elementi eterogenei, ma non è buona norma farlo. Gli elementi di una lista possono cambiare, quindi è mutabile. Su una lista si possono effettuare varie operazioni: add, extend, remove, sort, reverse...
 Dichiarando una  lista, e poi assegnando il nome di questa lista ad un'alta variabile, si va a creare un alias, e ogni modifica fatta sull'alias si andrà a rispecchiare sulla lista originale (e viceversa), se si vuole creare una nuova lista partendo da una già esistente, bisogna usare l'operatore \[\:\].
 Il terzo tipo di struttura dati è il Dizionario, ovvero una struttura composta da elementi associati ad un identificativo (una coppia chiave/valore). I valori possono essere di qualsiasi tipo, possono essere duplicati e addirittura possono essere altre strutture dati (un dizionario di dizionari è possibile), mentre le chiavi devono essere uniche ed immutabili. Né le chiavi né i valori sono ordinati.
 
+## Parametri
 In Python tutto è un oggetto, con cui si può interagire tramite i riferimenti, e ciò vale anche per il passaggio di parametri: passando un parametro ad una funzione, il riferimento contenuto nel parametro attuale è copiato in quello formale, e se si tratta di un oggetto mutabile, ogni modifica del parametro formale si riflette su quello attuale.
-Per passare un numero variabile di argomenti si può dichiarare tra i parametri nella firma della funzione il parametro \*args (dev'essere l'ultimo parametro della firma), 
+Per passare un numero variabile di argomenti si può dichiarare tra i parametri nella firma della funzione il parametro \*args (dev'essere l'ultimo parametro della firma), Inoltre, è possibile per il chiamante specificare quale parametro attuale rappresenta quale parametro formale tramite i keyword arguments, ed inoltre è possibile usare il parametro \*\*kwargs per passare un numero variabile di di keyword arguments.
+
+## File e Eccezioni
+Quando viene eseguito un programma Pyhon si creano 3 oggetti file: sys.stdin, sys.stdout e sys.stderr; che rappresentano i flussi di dati standard che collegano il programma al terminale.
+E' possibile utilizzare l'istruzione with per acquisire risorse e rilasciarle automaticamente al termine del loro utilizzo, questa può essere usata sia per file che per lock.
+Le funzioni principali sui file sono open, write, readlines e seek.
+Per gestire i file si fa uso del modulo os, che permette di creare, rimuovere e rinominare file del filesystem.
+Quando una funzione produce delle condizioni non attese si genera un'eccezione, le eccezioni possono essere gestite tramite blocco try/except/else/finally. Si può anche sollevare un'eccezione manualmente tramite l'istruzione raise. Infine, si possono usare le asserzioni per essere sicuri che l'esecuzione sia come attesa, quindi si può usare l'istruzione assert, che verifica la condizione attesa e se fallisce solleva un AssertionError.
