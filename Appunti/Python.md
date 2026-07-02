@@ -28,3 +28,10 @@ E' possibile utilizzare l'istruzione with per acquisire risorse e rilasciarle au
 Le funzioni principali sui file sono open, write, readlines e seek.
 Per gestire i file si fa uso del modulo os, che permette di creare, rimuovere e rinominare file del filesystem.
 Quando una funzione produce delle condizioni non attese si genera un'eccezione, le eccezioni possono essere gestite tramite blocco try/except/else/finally. Si può anche sollevare un'eccezione manualmente tramite l'istruzione raise. Infine, si possono usare le asserzioni per essere sicuri che l'esecuzione sia come attesa, quindi si può usare l'istruzione assert, che verifica la condizione attesa e se fallisce solleva un AssertionError.
+
+## OOP
+Python è Object-Oriented, quindi ogni tipo di dato rappresenta una classe. Gli oggetti possono essere istanziati, manipolati e distrutti (esplicitamente o lasciando il compito al garbage collector).
+Una classe può essere implementata tramite la keyword class, seguita da nome e eventuali relazioni con altre classi. I dati e le procedure che appartengono ad una classe sono detti attributi e metodi. Il costruttore in Python è un metodo chiamato \_\_init\_\_, che prende come primo parametro self, che rappresenta l'istanza della classe.
+Un altro metodo particolare è \_\_str\_\_ che è utilizzato per permettere l'uso di un oggetto di una classe in una print. Ci sono molti altri metodi che si possono overridare per adattare il comportamento di altri operatori speciali, come \_\_add\_\_ per la somma o \_\_eq\_\_ per l'uguaglianza.
+Altri metodi importanti sono i getter e setter che sono utilizzati per implementare il concetto di information hiding all'interno del programma.
+Una superclasse è una classe da cui altre classi, le sottoclassi, ereditano attributi e metodi. Una sottoclasse può ereditare da più superclassi (ereditarietà multipla), ma questa possibilità introduce un problema noto come il Diamond Problem: se una classe eredita da due classi che overloadano lo stesso metodo, quale 
