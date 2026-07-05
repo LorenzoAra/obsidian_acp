@@ -55,7 +55,6 @@ Il modulo multiprocessing supporta lo spawning (in windows, oppure il forking in
 Esiste un fork del modulo multiprocessing chiamato multiprocess che sostituisce il serializzatore standard (pickle) con dill, permettendo di passare ai processi paralleli callable più complesse, come ad esempio le funzioni lambda.
 Un oggetto della classe Process rappresenta un'entità da eseguire in un processo separato, comportandosi allo stesso modo dei Thread di threading, quindi stessa istanziazione e anche multiprocessing fornisce Lock, RLock, Condition, Semaphore ed Event.
 Per scambiare oggetti tra processi ci sono due canali di comunicazione principali: Pipe e Queue, dove Pipe consenta la connessione tra più processi e Queue implementa il problema produttori-consumatori. Una Pipe è una coppia di Connection Objects (gli estremi del tubo) e una Queue è una process shared queue, implementata tramite Pipe e Lock (o semafori).
-
-v^2/R
-v = v0 + at\*t
-v^2/R = v0^2 + at^2*t^2 + 2v0at*t / R
+Gli oggetti Connection della Pipe rappresentano gli estremi del tubo e si si possono utilizzare i metodi send e recv, per inviare e ricevere oggetti da un estremo all'altro.
+Quando un processo immette un oggetto in una Queue, viene avviato un thread che trasferisce gli oggetti da un buffer alla Pipe usata per implementare la Queue.
+Uno degli strumenti offerto dal modulo multiprocessing per la condivisione di dati è la Shared Memory, rappresentata da oggetti di tipo Value o Array (che quindi sono compatibili con il C). 
