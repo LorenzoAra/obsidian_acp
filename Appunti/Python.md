@@ -67,3 +67,8 @@ Per creare e usare Socket in Python si usa il modulo socket, i cui metodi princi
 Per la comunicazione UDP con Socket invece si usano sendto e recvfrom: dato che UDP non è connection-oriented non bisogna instaurare la connessione con connect listen e accept, ma il Client effettua direttamente la sendto specificando indirizzo e porta del server e recvfrom, mentre il server deve anche ovviamente fare la bind sulla porta desiderata.
 Per migliorare l'efficienza dei Server, questi si possono rendere multi-thread o multi-processo, ricordando che ogni flusso di controllo, thread o processo che sia, deve sempre avere come parametro la connessione restituita dal metodo accept nel caso di Server TCP oppure l'indirizzo e la porta del mittente e il messaggio ricevuto nel caso di Server UDP.
 Il pattern Proxy introduce nel modello di interazione Client-Server un Proxy, che rappresenta un'implementazione del servizio remoto, però locale al Client, dove quindi i meccanismi necessari per la comunicazione (TCP o UDP), sono incapsulati all'interno del codice del Proxy.
+Un'implementazione del Proxy è nel pattern Proxy-Skeleton, che prevede un Proxy lato client ed uno lato server (lo Skeleton). Saranno questi due proxy a comunicare tra loro, gestendo tutta la logica di comunicazione, lasciando la logica applicativa a client e server. 
+
+
+## Sistemi Middleware
+Un sistema distribuito è un sistema i cui componenti coordinano le loro azioni tramite lo scambio di messaggi, dato che sono su macchine diversi connesse in rete. In generale un sistema distribuito è eterogeneo, e per questo la complessità di sviluppo di software di qualità è molto alta, dato che occorre adoperare tecniche e linguaggi diversi in base all'hardware/software su cui girano i programmi del sistema.
