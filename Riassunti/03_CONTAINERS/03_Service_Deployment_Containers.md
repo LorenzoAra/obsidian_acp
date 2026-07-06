@@ -305,8 +305,10 @@ Un host Docker puo svolgere il ruolo di manager, worker o entrambi.
 
 ### Algoritmo Raft (manager)
 
-- Tollera fino a \( \lfloor (N-1)/2 floor \) fallimenti di manager
-- Richiede una maggioranza (**quorum**) di \( \lfloor N/2 floor + 1 \) membri per accordarsi
+- Tollera fino a \( \lfloor (N-1)/2 
+floor \) fallimenti di manager
+- Richiede una maggioranza (**quorum**) di \( \lfloor N/2 
+floor + 1 \) membri per accordarsi
 
 ---
 
