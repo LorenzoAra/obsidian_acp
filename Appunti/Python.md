@@ -81,4 +81,9 @@ Il modello a oggetti distribuiti (DOM) rappresenta la programmazione orientata a
 
 ## gRPC
 Il gRPC è un middleware universale, multilinguaggio e multipiattaforma che usa HTTP/2 per il trasporto e un protobuf come Interface Definition Language, per definire il contratto a cui le parti della comunicazione dovranno attenersi, supporta lo streaming bidirezionale, il multiplexing, l'autenticazione e le comunicazioni sia bloccanti che non.
-L'idea di base è quella di trattare le procedure remote come fossero dei riferimenti a oggetti HTTP 
+L'idea di base è quella di trattare le procedure remote come fossero dei riferimenti a oggetti HTTP.
+L'HTTP/2, rispetto all'1.1, fa uso di un Binary Framing Layer per suddividere le richieste/risposte HTTP in messaggi di piccola dimensione; questi messaggi poi vengono trasmessi in dei flussi (stream) bidirezionali che consentono di trasportare anche più di un messaggio alla volta, implementando così il multiplexing dato che un client non dovrà usare più di una connessione alla volta.
+I protocol buffer (protobuf) di gRPC sono IDL che generano automaticamente stub client e classi server astratte da implementare; i messaggi vengono serializzati e trasmessi tramite HTTP/2. I tipi di dati definiti nei protobuf sono strutturati come messaggi, dove per messaggio si intende un record logico di informazioni contenute in una serie di campi (coppie nome-valore).
+Ogni canale di comunicazione gRPC è thread-safe, così come lo sono gli stub lato client, solo il server è sempre soggetto al GIL.
+gRPC supporta 4 tipi di RPC call: Semplice (il client invia una richiesta e riceve una risposta), Streaming lato server (il client invia una richiesta e riceve uno stream di risposte), Streaming lato client (il client invia uno stream di richieste e riceve una risposta), Streaming bidirezionale (il client invia uno stream di richieste e riceve uno stream di risposte).
+Affinchè una funzione sia in grado di restituire uno stream, una classica return non va bene: bisogna usare una funzione Generator, che al posto di return usa yield, che ritorna un iteratore che che contiene n elementi su cui iterare,
