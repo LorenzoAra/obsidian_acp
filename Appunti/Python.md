@@ -1,4 +1,4 @@
-aq## Introduzione
+## Introduzione
 Python è un linguaggio di programmazione interpretato, ovvero in cui il codice non viene prima tradotto interamente in linguaggio macchina, ma le singole istruzioni vengono eseguite, dall'interprete Python (CPython), riga per riga. Ciò che fa CPython è tradurre il codice in un "byte code" (file .pyc), ovvero uno codice generato appositamente per una macchina virtuale, la PVM (Python Virtual Machine).
 Python, in quanto orientato agli oggetti, manipola i cosiddetti data objects, ovvero oggetti che hanno un tipo, che può essere scalare e non-scalare, dove per non-scalare si intendono oggetti con una struttura interna accessibile. Le stringhe sono tipi di oggetti particolari, che sono per definizione non-scalari (dato che sono letteralmente array di caratteri), ma vengono trattati come scalari (non si può modificare con una normale assegnazione un singolo carattere di una stringa).
 Una funzione in Python è composta da nome, parametri, docstring opzionale, corpo e valore di ritorno (se non specificato, una funzione in Python ritorna sempre None).
