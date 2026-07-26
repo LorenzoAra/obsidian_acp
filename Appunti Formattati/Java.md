@@ -151,7 +151,7 @@ try {
 
 ### ReentrantLock
 
-Esiste anche una classe `ReentrantLock` che si comporta però come i metodi e i blocchi `synchronized`.
+Esiste anche una classe `ReentrantLock` che si comporta però come fosse associato a metodi e blocchi `synchronized`.
 
 ### Interfaccia Condition
 
