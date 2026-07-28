@@ -285,8 +285,6 @@ Per aggiungere nodi (worker o manager) allo swarm si esegue, sulla macchina da u
 docker swarm join --token TOKEN IP:2377
 ```
 
-> **Nota di revisione tecnica:** il comando originale riportava `---token` (tre trattini), sintassi non valida per Docker CLI. Il flag corretto è `--token` (due trattini).
-
 ### Gestione di servizi e stack
 
 ```bash
